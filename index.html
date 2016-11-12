@@ -1,0 +1,79 @@
+<html ng-app="hour-tracker">
+  <head>
+    <title>hour-tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "",
+        authDomain: "",
+        databaseURL: "",
+        storageBucket: "m",
+        messagingSenderId: ""
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <!-- Angular App Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-controller="HourTrackerCtrl">
+    <div class="container">
+      <div id="notif" class="alert alert-success" style="display: none">
+    		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    		Success.
+    	</div>
+
+      <h1 style="text-align: center">hour-tracker</h1>
+      <form ng-submit="addHours()">
+        <fieldset class="form-group">
+          <label>Name</label>
+          <input class="form-control" ng-model="volunteerName"/>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label>Session Date</label>
+          <input class="form-control" type="date" ng-model="date"/>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label>Role</label>
+          <div class="radio">
+            <label><input type="radio" ng-model="role.name" value="roleOne">Role #1</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" ng-model="role.name" value="roleTwo">Role #2</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" ng-model="role.name" value="roleThree">Role #3</label>
+          </div>
+        </fieldset>
+
+        <button type="submit" id="submit" class="btn btn-success">Add Hours</button>
+      </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script>
+      document.getElementById("submit").addEventListener("click", postSubmit);
+
+    	function postSubmit() {
+    		// Hide success notification if it is already there
+    		document.getElementById("notif").style.display = 'none';
+
+    		// Show success notification
+    		document.getElementById("notif").style.display = '';
+    	}
+    </script>
+  </body>
+</html>
