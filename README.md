@@ -1,5 +1,6 @@
 # hour-tracker
 Easily track volunteer service hours. 
+Written by [@reesdraminski](https://github.com/reesdraminski)
 
 # Instructions
 1. Get started with [Firebase](https://firebase.google.com/).
