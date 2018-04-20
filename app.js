@@ -21,11 +21,8 @@ app.controller("HourTrackerCtrl", function($scope, $window, $firebaseArray) {
     else if ($scope.role.name == "roleThree")
       hours = 4;
 
-    // Copy volunteer role name off scope
+    // Get Volunteer Role from form
     var role = $scope.role.name;
-
-    // Copy location name off scope
-    var location = $scope.location.name;
 
     // Make volunteer name database ref ready
     var name = $scope.volunteerName.replace(" ", "-");
